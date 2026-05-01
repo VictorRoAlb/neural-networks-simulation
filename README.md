@@ -16,6 +16,8 @@ Instead, it keeps a cleaner portfolio version centered on methodology notes, rep
 
 ## Included here
 
+- `notebooks/neural_networks_project_summary.ipynb`
+  Clean public notebook that brings together the representative figures and project structure.
 - `src/extract_notebook_result_figures.py`
   Small utility used to export representative embedded PNG outputs from the final notebook.
 - `figures/training_history_reference.png`
@@ -24,6 +26,13 @@ Instead, it keeps a cleaner portfolio version centered on methodology notes, rep
   Final confusion-matrix view exported from the notebook.
 - `docs/manual_review.md`
   Notes explaining why the original notebook itself is not copied blindly.
+
+## Where to start
+
+1. `notebooks/neural_networks_project_summary.ipynb`
+2. `figures/training_history_reference.png`
+3. `figures/final_confusion_matrix.png`
+4. `src/extract_notebook_result_figures.py`
 
 ## Visual preview
 
