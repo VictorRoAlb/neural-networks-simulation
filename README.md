@@ -40,4 +40,4 @@ The local source notebook still contains:
 - local dataset references;
 - checkpoint-related material that should not be bundled publicly.
 
-For that reason, the public repo keeps only the parts that are useful and safe for a portfolio-facing version.
+For that reason, the repository keeps only the parts that are useful and safe to share publicly.
