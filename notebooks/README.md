@@ -1,13 +1,14 @@
 # Notebooks
 
 - `neural_networks_project_summary.ipynb`
-  Clean public notebook that summarizes the project structure, representative training behaviour and final classification view.
+  Public showcase notebook for the burnout-risk classification project. It loads the stored result tables, highlights the best configuration and previews the final report figures.
 
-## Recommended reading order
+## Suggested reading flow
 
-1. `neural_networks_project_summary.ipynb`
-2. `../figures/training_history_reference.png`
-3. `../figures/final_confusion_matrix.png`
-4. `../src/extract_notebook_result_figures.py`
+1. `../docs/methodology_overview.md`
+2. `neural_networks_project_summary.ipynb`
+3. `../docs/results_summary.md`
+4. `../figures/neural_project_summary_panel.png`
+5. `../src/burnout_multiclass_workflow.py`
 
-The original local notebook is not copied directly because it still contains dataset-specific references and environment-dependent traces. This folder keeps the cleaner public notebook instead.
+The heavy local coursework notebook is not copied directly. Instead, this folder keeps a compact notebook that is easier to browse on GitHub and aligned with the public artifacts shipped in `results/` and `figures/`.

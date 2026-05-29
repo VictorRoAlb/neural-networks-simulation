@@ -1,59 +1,94 @@
 # Neural Networks and Simulation
 
-Curated public snapshot of a neural-networks coursework project built around classification experiments, model comparison and representative final outputs.
+Public-facing coursework repository built around a multiclass neural-network study for burnout-risk classification in a Gen Z population.
 
-## Overview
+## Project focus
 
-The original local notebook combines several stages of experimentation:
+This repository now centers on a cleaner and more defensible project narrative than the original local coursework dump:
 
-- baseline dense neural networks;
-- deeper feed-forward variants with regularization;
-- convolutional architectures explored later in the notebook;
-- training-history inspection and final confusion-matrix analysis.
+- tabular multiclass classification with strong class imbalance;
+- reproducible train / validation / test splitting;
+- leakage-safe preprocessing with scaling and one-hot encoding;
+- comparison across baseline, shallow and deep multilayer perceptrons;
+- class-weighted training and Macro F1-driven model selection;
+- final report figures curated for public presentation.
 
-The public repository does not ship the original dataset, checkpoints or workstation-specific notebook dump.
-Instead, it keeps a cleaner portfolio version centered on methodology notes, representative figures and a small helper that extracts public-safe outputs from the local notebook when needed.
+The strongest model in the final comparison was a deep MLP with `sigmoid` activations, `Adam`, and `dropout=0.25`, selected using validation Macro F1 and then evaluated once on the held-out test split.
 
-## Included here
+## What is included
 
 - `notebooks/neural_networks_project_summary.ipynb`
-  Clean public notebook that brings together the representative figures and project structure.
-- `src/extract_notebook_result_figures.py`
-  Small utility used to export representative embedded PNG outputs from the final notebook.
+  Lightweight public notebook that walks through the repository, loads the stored result tables and previews the report figures directly on GitHub.
+- `src/burnout_multiclass_workflow.py`
+  Clean Python script version of the coursework workflow, covering preprocessing, model comparison, Keras Tuner search and artifact export.
 - `src/build_summary_panel.py`
-  Helper used to build a cleaner portfolio-ready visual summary from the representative outputs.
-- `figures/training_history_reference.png`
-  Representative training-history plot exported from the coursework notebook.
-- `figures/final_confusion_matrix.png`
-  Final confusion-matrix view exported from the notebook.
-- `figures/neural_project_summary_panel.png`
-  Compact visual summary combining the strongest representative views.
-- `docs/manual_review.md`
-  Notes explaining why the original notebook itself is not copied blindly.
+  Helper that combines the report figures into a single portfolio-ready summary panel.
+- `docs/methodology_overview.md`
+  High-level explanation of the experimental design and modeling choices.
+- `docs/results_summary.md`
+  Concise narrative of the final findings captured in the public outputs.
+- `results/model_comparison_summary.csv`
+  Stored model-comparison table for the published experiment.
+- `results/final_model_selection.csv`
+  Compact final table used in the report-ready summary.
+- `results/experiment_config.json`
+  Public-safe record of the shared experiment configuration.
+- `figures/`
+  Curated figures extracted from the final report and aligned with the portfolio website.
 
-## Where to start
+## Repository structure
 
-1. `notebooks/neural_networks_project_summary.ipynb`
-2. `figures/neural_project_summary_panel.png`
-3. `figures/training_history_reference.png`
-4. `figures/final_confusion_matrix.png`
-5. `src/extract_notebook_result_figures.py`
+- `docs/`
+  Publication notes, methodology and final findings.
+- `figures/`
+  Class balance, learning curves, model-comparison and confusion-matrix visuals.
+- `notebooks/`
+  Public notebook summary for GitHub reading.
+- `results/`
+  Safe CSV and JSON artifacts used by the notebook and README.
+- `src/`
+  Reusable Python scripts for the experiment workflow and figure generation.
 
-## Visual preview
+## Main findings
 
-![Neural project summary](figures/neural_project_summary_panel.png)
+- the dataset is strongly imbalanced, with the `Low` class representing a very small minority, so Macro F1 is more informative than accuracy alone;
+- all models share the same split strategy, preprocessing stack, callbacks and maximum epoch budget, which makes the comparison easier to defend;
+- the best validation Macro F1 was achieved by `deep_sigmoid_adam_dropout025` with `0.9734`;
+- the same model reached `0.9986` Macro F1 and `0.9980` test accuracy on the final held-out split;
+- the Keras Tuner retrained shallow model was competitive, but the deeper sigmoid network remained the strongest overall configuration.
 
-![Training history reference](figures/training_history_reference.png)
+## Visual summary
+
+![Neural project summary panel](figures/neural_project_summary_panel.png)
+
+## Report figures
+
+![Class distribution and class weights](figures/class_distribution_and_weights.png)
+
+![Best-model learning curves](figures/training_history_reference.png)
+
+![Model comparison summary](figures/model_comparison_summary.png)
 
 ![Final confusion matrix](figures/final_confusion_matrix.png)
 
-## Why the raw notebook is not published directly
+## Reproducibility note
 
-The local source notebook still contains:
+The original dataset `GenZ_dataset.xlsx`, private course handouts and local execution traces are not published here.
 
-- absolute workstation paths;
-- environment-specific execution traces;
-- local dataset references;
-- checkpoint-related material that should not be bundled publicly.
+If you want to rerun the full workflow locally, provide a compatible Excel file with a `Burnout_Risk` target column and execute:
 
-For that reason, the repository keeps only the parts that are useful and safe to share publicly.
+```bash
+python src/burnout_multiclass_workflow.py --data-path path/to/GenZ_dataset.xlsx
+```
+
+## Recommended reading order
+
+1. `docs/methodology_overview.md`
+2. `docs/results_summary.md`
+3. `notebooks/neural_networks_project_summary.ipynb`
+4. `results/model_comparison_summary.csv`
+5. `src/burnout_multiclass_workflow.py`
+
+## Publication note
+
+This public version is intentionally curated around the final experimental workflow, the stored results and the figures used in the report, instead of exposing a raw private notebook dump.

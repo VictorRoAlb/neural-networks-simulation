@@ -1,14 +1,29 @@
-# Manual Review Required
+# Publication Notes
 
-Candidate source notebook:
-- `MASTER/SEGUNDO_CUATRI/SIMULACION Y REDES NEURONALES/TRABAJO-SIMULACION Y REDES.ipynb`
+## Source material behind this public repository
 
-Reasons for manual review:
-- contains absolute local paths;
-- includes environment-specific execution traces;
-- appears mixed with draft/course material that should be curated before publication.
+The public-facing version was rebuilt from:
 
-What was kept in the public version:
-- a helper script that extracts representative embedded figures from the notebook;
-- a training-history preview;
-- a final confusion-matrix preview.
+- the local coursework notebook `Codigos_SRN_Patricia_Victor_macroF1_pesos.ipynb`;
+- the final report PDF used for the curated figure gallery;
+- the stored output artifacts generated in `outputs_burnout_unified`.
+
+## Why the repository is curated
+
+The original private workspace mixes:
+
+- dataset-dependent execution;
+- heavy model artifacts and tuner checkpoints;
+- private course files;
+- local exploratory traces that are not useful for a public audience.
+
+For that reason, the published repository focuses on:
+
+- a clean summary notebook;
+- a reusable Python workflow script;
+- safe CSV and JSON outputs;
+- the figures that best support the final conclusions.
+
+## Scope of the public release
+
+This repository is meant to show methodology, modeling decisions and final results, not to mirror the full private coursework folder one-to-one.

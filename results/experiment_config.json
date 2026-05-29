@@ -1,0 +1,25 @@
+{
+    "DATA_PATH": "GenZ_dataset.xlsx",
+    "TARGET_COL": "Burnout_Risk",
+    "CLASS_NAMES": [
+        "Low",
+        "Medium",
+        "High"
+    ],
+    "CLASS_TO_INT": {
+        "Low": 0,
+        "Medium": 1,
+        "High": 2
+    },
+    "RANDOM_STATE": 42,
+    "TEST_SIZE": 0.1,
+    "VAL_SIZE_TOTAL": 0.1,
+    "MAX_EPOCHS": 50,
+    "BATCH_SIZE": 128,
+    "PATIENCE": 10,
+    "LR_PATIENCE": 5,
+    "MIN_DELTA": 0.0001,
+    "best_model_name": "deep_sigmoid_adam_dropout025",
+    "selection_metric_report": "macro_f1_test",
+    "monitor_metric_training": "val_macro_f1"
+}
